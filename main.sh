@@ -1,17 +1,13 @@
-#!/bin/sh
-set -e
-
-INPUT_DOMAIN=${INPUT_DOMAIN:-'/'}
-INPUT_APP=${INPUT_APP:-'./app'}
-INPUT_DIST=${INPUT_DIST:-'./dist'}
+#!/bin/pwsh
 
 docker pull acblog/wasm:latest
-container=$(docker run -d acblog/wasm:latest)
+$container=$(docker run -d acblog/wasm:latest)
 docker stop $container
-docker cp $container:/app $INPUT_DIST
+docker cp $container:/app $env:INPUT_DIST
 docker rm $container
-cp -r $INPUT_APP/* $INPUT_DIST
-echo "* binary" > $INPUT_DIST/.gitattributes
-echo "" > $INPUT_DIST/.nojekyll
-$(cat $INPUT_DIST/404.html) -replace "<base href=""/"" />", "<base href=""$INPUT_DOMAIN"" />" > $INPUT_DIST/404.html
-$(cat $INPUT_DIST/index.html) -replace "<base href=""/"" />", "<base href=""$INPUT_DOMAIN"" />" > $INPUT_DIST/index.html
+cp -r $env:INPUT_APP/* $env:INPUT_DIST
+echo "* binary" > $env:INPUT_DIST/.gitattributes
+echo "" > $env:INPUT_DIST/.nojekyll
+$(cat $env:INPUT_DIST/404.html) -replace "<base href=""/"" />", "<base href=""$env:INPUT_DOMAIN"" />" > $env:INPUT_DIST/404.html
+$(cat $env:INPUT_DIST/404.html) -replace "sparedirectEncode(l, 0)", "sparedirectEncode(l, $env:INPUT_SEGMENTCOUNT)" > $env:INPUT_DIST/404.html
+$(cat $env:INPUT_DIST/index.html) -replace "<base href=""/"" />", "<base href=""$env:INPUT_DOMAIN"" />" > $env:INPUT_DIST/index.html

@@ -3,9 +3,13 @@ description: "Use AcBlog WASM Client to generate github pages"
 author: "StardustDL"
 inputs:
   domain:
-    description: "Folder path in domain, ends with '/''"
+    description: "Folder path in domain, ends with '/', default to '/'."
     required: false
     default: "/"
+  segmentCount:
+    description: "Segment count in domain, default to '0'."
+    required: false
+    default: "0"
   app:
     description: "App directory with settings files, not endswith '/', default to './app'."
     required: false
