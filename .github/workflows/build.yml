@@ -1,0 +1,18 @@
+name: Action CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Verify action syntax 
+      # The action should not publish any real changes, but should succeed.
+      uses: './'
+    - name: Upload artifacts
+      uses: actions/upload-artifact@master
+      with:
+        name: dist
+        path: ./dist

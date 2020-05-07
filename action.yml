@@ -1,0 +1,19 @@
+name: 'WASM Github Pages Generate'
+description: 'Use AcBlog WASM Client to generate github pages'
+author: 'StardustDL'
+inputs:
+  domain:
+    description: 'Folder path in domain, ends with '/''
+    required: false
+    default: '/'
+  app:
+    description: 'App directory with settings files, not endswith '/', default to './app'.'
+    required: false
+    default: './app'
+  dist:
+    description: 'Dist directory, not endswith '/', default to './dist'.'
+    required: false
+    default: './dist'
+runs:
+  using: 'node12'
+  main: 'main.js'
