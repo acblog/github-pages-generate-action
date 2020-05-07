@@ -48,7 +48,7 @@ $(Get-Content $env:INPUT_DIST/index.html) -Replace "<base href=""/"" />", "<base
 if (!$?) {
     exit 1
 }
-Move-Item $env:INPUT_DIST/index_new.html $env:INPUT_DIST/index.html
+Move-Item $env:INPUT_DIST/index_new.html $env:INPUT_DIST/index.html -Force
 if (!$?) {
     exit 1
 }
