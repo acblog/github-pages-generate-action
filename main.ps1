@@ -3,7 +3,7 @@
 docker pull acblog/wasm:latest
 $container=$(docker run -d acblog/wasm:latest)
 docker stop $container
-docker cp $container:/app $env:INPUT_DIST
+docker cp ${container}:/app $env:INPUT_DIST
 docker rm $container
 cp -r $env:INPUT_APP/* $env:INPUT_DIST
 echo "* binary" > $env:INPUT_DIST/.gitattributes
