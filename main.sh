@@ -6,7 +6,7 @@ INPUT_APP=${INPUT_APP:-'./app'}
 INPUT_DIST=${INPUT_DIST:-'./dist'}
 
 docker pull acblog/wasm:latest
-container=docker run -d acblog/wasm:latest
+container=$(docker run -d acblog/wasm:latest)
 docker stop $container
 docker cp $container:/app $INPUT_DIST
 docker rm $container
