@@ -36,11 +36,11 @@ $(Get-Content $env:INPUT_DIST/404.html) -Replace "<base href=""/"" />", "<base h
 if (!$?) {
     exit 1
 }
-$(Get-Conten $env:INPUT_DIST/404.html) -Replace "sparedirectEncode(l, 0)", "sparedirectEncode(l, $env:INPUT_SEGMENTCOUNT)" > $env:INPUT_DIST/404.html
+$(Get-Content $env:INPUT_DIST/404.html) -Replace "sparedirectEncode(l, 0)", "sparedirectEncode(l, $env:INPUT_SEGMENTCOUNT)" > $env:INPUT_DIST/404.html
 if (!$?) {
     exit 1
 }
-$(Get-Conten $env:INPUT_DIST/index.html) -Replace "<base href=""/"" />", "<base href=""$env:INPUT_DOMAIN"" />" > $env:INPUT_DIST/index.html
+$(Get-Content $env:INPUT_DIST/index.html) -Replace "<base href=""/"" />", "<base href=""$env:INPUT_DOMAIN"" />" > $env:INPUT_DIST/index.html
 if (!$?) {
     exit 1
 }
