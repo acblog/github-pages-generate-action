@@ -1,10 +1,10 @@
 #!/bin/pwsh
 
-docker pull acblog/wasm:v0.0.1
+docker pull acblog/wasm:latest
 if (!$?) {
     exit 1
 }
-$container=$(docker run -d acblog/wasm:v0.0.1)
+$container=$(docker run -d acblog/wasm:latest)
 if (!$?) {
     exit 1
 }
