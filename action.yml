@@ -1,6 +1,9 @@
 name: "WASM Github Pages Generate"
 description: "Use AcBlog WASM Client to generate github pages"
 author: "StardustDL"
+branding:
+  icon: 'box'
+  color: 'blue'
 inputs:
   domain:
     description: "Folder path in domain, ends with '/', default to '/'."
